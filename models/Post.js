@@ -1,3 +1,4 @@
+const { Module } = require("module");
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
@@ -12,16 +13,16 @@ Post.init(
             autoIncrement: true,
         },
         title: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
             
         },
         content: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         user_id: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             references: {
                 model: 'user',
                 key: 'id',
@@ -36,3 +37,4 @@ Post.init(
         modelName: 'post',
     }
 )
+module.exports = Post 
